@@ -1,0 +1,24 @@
+plugins {
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '1.8'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// JUnit5
+	testImplementation("org.junit.platform:junit-platform-launcher:1.5.2")
+	testImplementation('org.junit.jupiter:junit-jupiter:5.9.2')
+}
+
+test {
+	useJUnitPlatform()
+}
