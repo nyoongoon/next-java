@@ -32,7 +32,6 @@ public class StringCalculatorTest {
         String str6 = "7";
         assertEquals(7, 7);
 
-
     }
 
     @Test
