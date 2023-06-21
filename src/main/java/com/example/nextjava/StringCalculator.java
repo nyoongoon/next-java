@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 public class StringCalculator {
 
 
-    public int add(String str) {
+    public int addMyAnswer(String str) {
         if (str == null || str.isEmpty()) {
             return 0;
         }
@@ -29,7 +29,7 @@ public class StringCalculator {
         return result;
     }
 
-    public int addWithHint(String text) {
+    public int add(String text) {
         String[] tokens;
         if (text == null || text.isEmpty()) {
             return 0;
@@ -39,7 +39,8 @@ public class StringCalculator {
             return Integer.parseInt(text);
         }
 
-        if (text.length() == 3 && text.charAt(1) == ',') {
+        //if (text.length() == 3 && text.charAt(1) == ',') { // 숫자가 1의자리가 아닐 수도 있음 ...
+        if(text.contains(",")){
             tokens = text.split(",");
             return sum(tokens);
         }
