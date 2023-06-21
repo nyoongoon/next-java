@@ -44,15 +44,24 @@ public class StringCalculator {
             return sum(tokens);
         }
 
-        if (text.length() >= 5 &&
-                text.charAt(0) == '/' &&
-                text.charAt(1) == '/' &&
-                text.charAt(3) == '\\' &&
-                text.charAt(4) == 'n') {
+        if (!Character.isDigit(text.charAt(0))) {
 
+            tokens = matchCustomDelimeter(text);
+            return sum(tokens);
         }
 
-        return 0;
+        tokens = text.split(",|:");
+        return sum(tokens);
+    }
+
+    public String[] matchCustomDelimeter(String text){
+        String[] tokens = new String[0];
+        Matcher m = Pattern.compile("//(.)\n(.*)").matcher(text);
+        if(m.find()){
+            String customDelimeter = m.group(1);
+            tokens = m.group(2).split(customDelimeter);
+        }
+        return tokens;
     }
 
     public int sum(String[] tokens) {
